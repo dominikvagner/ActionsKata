@@ -48,7 +48,7 @@ jobs:
       run: dotnet test
 
   publish:
-    needs: [test, sonarqube]
+    needs: [welcome, build, test, sonarqube]
     runs-on: ubuntu-latest
 
     steps:
@@ -62,7 +62,6 @@ jobs:
 
   sonarqube:
     needs: welcome
-    name: Build and analyze
     runs-on: windows-latest
 
     steps:
